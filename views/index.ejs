@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 0.8rem;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 20rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 0.4rem;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 1rem;
+      border: none;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form id="loginForm" action="/api/login" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit" >Login</button>
+    <br>
+    
+    <a href="signup.html">Don't Have an Account? Signup now</a>
+  </form>
+  
+
+  <script>
+    function login() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // You can add your authentication logic here.
+      // For a simple example, we'll just alert the credentials.
+      alert("Username: " + username + "\nPassword: " + password);
+    }
+  </script>
+</body>
+</html>
