@@ -29,3 +29,17 @@ axios.request(config)
 .catch((error) => {
   console.log(error);
 });
+
+
+
+// <% for (var i =1; i <=10; i++ ) { %>
+//   <section class="product">
+//     <!-- <img src="product1.jpg" alt="Gift 1" /> -->
+//     <h2><%= ProductName %></h2>
+
+//     <img src="<%= ImageUrl %>" alt="image-url" />
+//     <p>₹<%= Price %></p>
+//     <p>Description: <%= Description %></p>
+//     <button>Add to Cart</button>
+//   </section>
+//   <%# will output the numbers 1-10 %> <% } %>
