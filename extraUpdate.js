@@ -1,7 +1,7 @@
 const axios = require('axios');
 let data = JSON.stringify({
-  "first_name": "Satyam",
-  "last_name": "Jain",
+  "first_name": "Jane",
+  "last_name": "Doe",
   "street": "Elvnu Street",
   "address": "H no 2 ",
   "city": "Delhi",
@@ -13,7 +13,7 @@ let data = JSON.stringify({
 let config = {
   method: 'post',
   maxBodyLength: Infinity,
-  url: 'https://qa2.sunbasedata.com/sunbase/portal/api/assignment.jsp?cmd=create',
+  url: 'https://qa2.sunbasedata.com/sunbase/portal/api/assignment.jsp?cmd=update&uuid=7676767676',
   headers: { 
     'Authorization': 'Bearer dGVzdEBzdW5iYXNlZGF0YS5jb206VGVzdEAxMjM=', 
     'Content-Type': 'application/json', 
@@ -31,15 +31,4 @@ axios.request(config)
 });
 
 
-
-// <% for (var i =1; i <=10; i++ ) { %>
-//   <section class="product">
-//     <!-- <img src="product1.jpg" alt="Gift 1" /> -->
-//     <h2><%= ProductName %></h2>
-
-//     <img src="<%= ImageUrl %>" alt="image-url" />
-//     <p>₹<%= Price %></p>
-//     <p>Description: <%= Description %></p>
-//     <button>Add to Cart</button>
-//   </section>
-//   <%# will output the numbers 1-10 %> <% } %>
+//update uuid

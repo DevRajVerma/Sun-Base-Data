@@ -177,7 +177,7 @@ app.get("/list", (req, res) => {
     .then((response) => {
       // console.log(JSON.stringify(response.data));
       var customers = response.data;
-      // console.log(details);
+      console.log(customers);
       res.render("list",{
         details : customers,
       });
