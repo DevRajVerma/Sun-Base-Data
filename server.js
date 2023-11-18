@@ -73,12 +73,20 @@ app.post("/api/login", (req, res) => {
 
     axios.request(config)
       .then((response) => {
-        console.log(JSON.stringify(response.data));
+        // console.log(JSON.stringify(response.data.access_token));
+        const token = response.data.access_token;
+        // console.log(token);
+
+
+        res.render("links",{name:token,});
+
       })
       .catch((error) => {
         console.log(error);
       });
 
+    // const token = response.data.access_token;
+      // console.log(token);
 
     // console.log(loda);
     // console.log(le);
@@ -89,6 +97,65 @@ app.post("/api/login", (req, res) => {
 });
 
 
+app.post("/api/create", (req, res) => {
+
+  const loda = req.body.firstName;
+    const le = req.body.lastName;
+
+    let data = JSON.stringify({
+      "first_name": loda,
+      "last_name": le,
+      "street": "Elvnu Street",
+      "address": "H no 2 ",
+      "city": "Delhi",
+      "state": "Delhi",
+      "email": "sam@gmail.com",
+      "phone": "12345678"
+    });
+    
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://qa2.sunbasedata.com/sunbase/portal/api/assignment.jsp?cmd=create',
+      headers: { 
+        'Authorization': 'Bearer dGVzdEBzdW5iYXNlZGF0YS5jb206VGVzdEAxMjM=', 
+        'Content-Type': 'application/json', 
+        'Cookie': 'JSESSIONID=A701E15FA0F79A04AA58119B7B74FDC4'
+      },
+      data : data
+    };
+    
+    axios.request(config)
+    .then((response) => {
+      // console.log(JSON.stringify(response.data));
+
+      const token = response.data;
+        console.log(token);
+
+        res.render("create",{name:token,});
+
+
+
+        // res.render("links",{name:token,});
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    
+
+    // console.log(loda);
+    // console.log(le);
+
+})
+
+app.get("/create",(req, res) =>{
+  // res.sendfile(create.html);
+  // res.render("create");
+  var token ="";
+
+  res.render("create",{name:token,});
+
+})
 
 
 server.listen(3000, function () {
